@@ -16,8 +16,8 @@ Modern dark theme for Vencord featuring oklch color spaces, gradient accents, gl
 ### Quick Install (Vencord Web / Desktop)
 
 1. Copy the raw link below:
-    ```
-    https://raw.githubusercontent.com/Tokioshi/discord-theme/main/obsidian-aurora.theme.css
+    ```css
+    @import url(https://raw.githubusercontent.com/Tokioshi/discord-theme/main/obsidian-aurora.theme.css);
     ```
 2. Open Discord -> Settings -> Vencord Settings -> Themes.
 3. Paste the URL into the Edit QuickCSS section and hit Enter.
