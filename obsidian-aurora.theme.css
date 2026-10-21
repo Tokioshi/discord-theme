@@ -1,0 +1,300 @@
+/**
+ * @name Obsidian Aurora
+ * @description Modern dark theme for Vencord: oklch colors, gradient accents, glass panels, smooth animations.
+ * @version 1.0.0
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --ob-hue: 0;
+  --ob-hue-2: 0;
+  --ob-radius: 14px;
+  --ob-anim: 1;
+  --ob-glow: 1;
+  --ob-blur: 18px;
+  --ob-font: 'Inter';
+  --ob-code-font: 'JetBrains Mono';
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --ob-anim: 0; }
+}
+
+:root {
+  --ob-t: calc(0.2s * var(--ob-anim));
+  --ob-ease: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  --ob-bg-0: oklch(18.0% 0 0);
+  --ob-bg-1: oklch(21.0% 0 0);
+  --ob-bg-2: oklch(24.0% 0 0);
+  --ob-bg-3: oklch(28.0% 0 0);
+  --ob-bg-4: oklch(32.0% 0 0);
+
+  --ob-text-1: oklch(98% 0 0);
+  --ob-text-2: oklch(88% 0 0);
+  --ob-text-3: oklch(72% 0 0);
+  --ob-text-4: oklch(58% 0 0);
+
+  --ob-accent: oklch(72% 0.17 285);
+  --ob-accent-hi: oklch(80% 0.14 285);
+  --ob-accent-lo: oklch(64% 0.18 285);
+  --ob-accent-2: oklch(76% 0.13 200);
+  --ob-on-accent: oklch(16% 0.030 285);
+  --ob-gradient: linear-gradient(135deg, var(--ob-accent), var(--ob-accent-2));
+  --ob-glow-color: oklch(72% 0.17 285 / calc(0.55 * var(--ob-glow)));
+
+  --ob-line: oklch(100% 0 0 / 0.08);
+  --ob-line-strong: oklch(100% 0 0 / 0.15);
+  --ob-hover: oklch(100% 0 0 / 0.06);
+  --ob-active: oklch(100% 0 0 / 0.10);
+}
+
+:is(body, .theme-dark, .theme-darker, .theme-midnight):not(.custom-user-profile-theme) {
+  --radius-sm: calc(var(--ob-radius) * 0.45);
+  --radius-md: calc(var(--ob-radius) * 0.70);
+  --radius-lg: var(--ob-radius);
+
+  --background-base-lowest: var(--ob-bg-0);
+  --background-base-lower: var(--ob-bg-1);
+  --background-base-low: var(--ob-bg-1);
+  --background-surface-high: var(--ob-bg-3);
+  --background-surface-higher: var(--ob-bg-3);
+  --background-surface-highest: var(--ob-bg-4);
+  --background-secondary-alt: var(--ob-bg-1);
+  --background-accent: var(--ob-bg-3);
+  --background-code: var(--ob-bg-0);
+  --chat-background-default: var(--ob-bg-2);
+  --home-background: var(--ob-bg-1);
+  --modal-background: var(--ob-bg-2);
+  --modal-footer-background: var(--ob-bg-1);
+  --channeltextarea-background: var(--ob-bg-3);
+  --background-scrim: oklch(0% 0 0 / 0.72);
+
+  --background-mod-muted: oklch(100% 0 0 / 0.03);
+  --background-mod-subtle: oklch(100% 0 0 / 0.04);
+  --background-mod-normal: oklch(100% 0 0 / 0.07);
+  --background-mod-strong: oklch(100% 0 0 / 0.11);
+  --interactive-background-hover: var(--ob-hover);
+  --interactive-background-active: var(--ob-active);
+  --interactive-background-selected: var(--ob-active);
+  --message-background-hover: oklch(100% 0 0 / 0.03);
+
+  --text-default: var(--ob-text-2);
+  --text-strong: var(--ob-text-1);
+  --text-subtle: var(--ob-text-3);
+  --text-muted: var(--ob-text-4);
+  --text-link: var(--ob-accent-hi);
+  --text-brand: var(--ob-accent-hi);
+  --chat-text-muted: var(--ob-text-4);
+  --channels-default: var(--ob-text-3);
+  --channel-icon: var(--ob-text-3);
+  --channel-text-area-placeholder: var(--ob-text-4);
+  --input-placeholder-text-default: var(--ob-text-4);
+  --interactive-text-default: var(--ob-text-3);
+  --interactive-text-hover: var(--ob-text-1);
+  --interactive-text-active: var(--ob-text-1);
+  --interactive-icon-default: var(--ob-text-3);
+  --interactive-icon-hover: var(--ob-text-1);
+  --interactive-icon-active: var(--ob-text-1);
+  --interactive-muted: var(--ob-text-4);
+  --icon-default: var(--ob-text-3);
+  --icon-subtle: var(--ob-text-3);
+  --icon-strong: var(--ob-text-2);
+  --icon-muted: var(--ob-text-4);
+
+  --border-muted: var(--ob-line);
+  --border-subtle: var(--ob-line);
+  --border-normal: var(--ob-line-strong);
+  --border-strong: var(--ob-line-strong);
+  --border-focus: var(--ob-accent);
+
+  --input-background-default: var(--ob-bg-0);
+  --input-text-default: var(--ob-text-2);
+  --input-border-default: var(--ob-line);
+  --input-border-hover: var(--ob-line-strong);
+  --input-border-active: var(--ob-accent);
+
+  --background-brand: var(--ob-accent);
+  --control-brand-foreground: var(--ob-accent-hi);
+  --control-primary-background-default: var(--ob-accent);
+  --control-primary-background-hover: var(--ob-accent-hi);
+  --control-primary-background-active: var(--ob-accent-lo);
+  --control-primary-text-default: var(--ob-on-accent);
+  --control-primary-text-hover: var(--ob-on-accent);
+  --control-primary-text-active: var(--ob-on-accent);
+  --control-primary-icon-default: var(--ob-on-accent);
+  --control-primary-icon-hover: var(--ob-on-accent);
+  --control-primary-icon-active: var(--ob-on-accent);
+  --control-secondary-background-default: var(--ob-bg-3);
+  --control-secondary-background-hover: var(--ob-bg-4);
+  --control-secondary-background-active: var(--ob-bg-4);
+  --control-secondary-border-default: var(--ob-line);
+  --control-secondary-border-hover: var(--ob-line-strong);
+  --control-secondary-border-active: var(--ob-line-strong);
+  --badge-background-default: var(--ob-accent);
+  --badge-text-default: var(--ob-on-accent);
+  --progressbar-indicator-background: var(--ob-accent);
+  --switch-background-default: var(--ob-bg-4);
+  --switch-background-selected-default: var(--ob-accent);
+  --switch-background-selected-hover: var(--ob-accent-hi);
+  --checkbox-background-selected-default: var(--ob-accent);
+  --checkbox-background-selected-hover: var(--ob-accent-hi);
+  --radio-background-selected-default: var(--ob-accent);
+  --radio-background-selected-hover: var(--ob-accent-hi);
+
+  --mention-background: oklch(72% 0.17 var(--ob-hue) / 0.16);
+  --mention-foreground: var(--ob-accent-hi);
+  --message-mentioned-background-default: linear-gradient(90deg, oklch(72% 0.17 var(--ob-hue) / 0.14), transparent 70%);
+  --message-mentioned-background-hover: linear-gradient(90deg, oklch(72% 0.17 var(--ob-hue) / 0.19), transparent 70%);
+  --message-highlight-background-default: linear-gradient(90deg, oklch(100% 0 0 / 0.07), transparent 70%);
+  --message-highlight-background-hover: linear-gradient(90deg, oklch(100% 0 0 / 0.10), transparent 70%);
+  --message-reacted-background-default: oklch(72% 0.17 var(--ob-hue) / 0.15);
+  --message-reacted-text-default: var(--ob-text-1);
+  --reaction-background-default: var(--ob-hover);
+  --reaction-background-hover: var(--ob-active);
+  --reaction-border-default: var(--ob-line);
+  --reaction-background-reacted-default: oklch(72% 0.17 var(--ob-hue) / 0.15);
+  --reaction-border-reacted-default: var(--ob-accent);
+  --reaction-text-reacted-default: var(--ob-text-1);
+
+  --brand-500: var(--ob-accent);
+  --brand-360: var(--ob-accent-hi);
+  --brand-260: var(--ob-accent-hi);
+
+  --scrollbar-thin-thumb: var(--ob-bg-4);
+  --scrollbar-thin-track: transparent;
+  --scrollbar-auto-thumb: var(--ob-bg-4);
+  --scrollbar-auto-track: transparent;
+
+  --elevation-low: 0 1px 2px oklch(0% 0 0 / 0.35);
+  --elevation-medium: 0 6px 18px -6px oklch(0% 0 0 / 0.5);
+  --elevation-high: 0 18px 48px -12px oklch(0% 0 0 / 0.6);
+}
+
+body {
+  --font-primary: var(--ob-font), 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: var(--ob-font), 'gg sans', 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-code: var(--ob-code-font), 'gg mono', Consolas, Monaco, monospace;
+}
+
+:is(div, span, code, a, p, li)::selection {
+  background: var(--ob-accent);
+  color: var(--ob-on-accent);
+}
+
+[data-list-item-id^="guildsnav___"] [class*="childWrapper_"] {
+  transition:
+    transform var(--ob-t) var(--ob-ease),
+    box-shadow var(--ob-t) ease,
+    border-radius var(--ob-t) ease,
+    background-color var(--ob-t) ease;
+}
+[data-list-item-id^="guildsnav___"]:hover [class*="childWrapper_"] {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 8px 20px -8px var(--ob-glow-color);
+}
+[data-list-item-id^="guildsnav___"]:active [class*="childWrapper_"] {
+  transform: scale(0.96);
+}
+
+[data-list-item-id^="channels___"] {
+  transition: transform var(--ob-t) ease, background-color var(--ob-t) ease;
+}
+[data-list-item-id^="channels___"]:hover {
+  transform: translateX(4px);
+}
+
+[class*="sidebarList_"] {
+  background-image: linear-gradient(180deg, oklch(100% 0 0 / 0.025), transparent 40%);
+}
+
+[id^="chat-messages-"] {
+  position: relative;
+}
+[id^="chat-messages-"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 0 4px 4px 0;
+  z-index: 1;
+  pointer-events: none;
+  background: var(--ob-gradient);
+  opacity: 0;
+  transform: scaleY(0.4);
+  transition: opacity var(--ob-t) ease, transform var(--ob-t) var(--ob-ease);
+}
+[id^="chat-messages-"]:hover::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+[class*="channelTextArea_"] {
+  border: 1px solid var(--ob-line);
+  border-radius: var(--ob-radius);
+  transition: box-shadow var(--ob-t) ease, border-color var(--ob-t) ease;
+}
+[class*="channelTextArea_"]:focus-within {
+  border-color: var(--ob-accent);
+  box-shadow: 0 0 0 1px var(--ob-accent), 0 10px 32px -10px var(--ob-glow-color);
+}
+
+button[class*="lookFilled_"] {
+  transition:
+    transform var(--ob-t) ease,
+    box-shadow var(--ob-t) ease,
+    background-color var(--ob-t) ease;
+}
+button[class*="lookFilled_"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px -8px var(--ob-glow-color);
+}
+button[class*="lookFilled_"]:active {
+  transform: translateY(0);
+}
+
+[class*="numberBadge_"] {
+  animation: ob-pulse calc(2.6s * var(--ob-anim)) ease-in-out infinite;
+}
+@keyframes ob-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(65% 0.20 25 / 0); }
+  50%      { box-shadow: 0 0 0 4px oklch(65% 0.20 25 / 0.25); }
+}
+
+[role="menu"] {
+  background: color-mix(in oklch, var(--ob-bg-3) 78%, transparent) !important;
+  backdrop-filter: blur(var(--ob-blur)) saturate(140%);
+  border: 1px solid var(--ob-line-strong);
+  border-radius: var(--ob-radius);
+  box-shadow: var(--elevation-high);
+}
+[role="menu"] [role="menuitem"] {
+  border-radius: calc(var(--ob-radius) * 0.5);
+}
+
+[class*="tooltip_"] {
+  background: var(--ob-bg-4);
+  border: 1px solid var(--ob-line-strong);
+  border-radius: calc(var(--ob-radius) * 0.5);
+  box-shadow: var(--elevation-medium);
+}
+
+.user-profile-popout {
+  border-radius: var(--ob-radius);
+  box-shadow: var(--elevation-high);
+}
+
+[class*="embedFull_"],
+.hljs,
+[class*="imageWrapper_"] {
+  border-radius: var(--radius-md);
+}
+[class*="embedFull_"] {
+  transition: box-shadow var(--ob-t) ease;
+}
+[class*="embedFull_"]:hover {
+  box-shadow: 0 10px 28px -14px oklch(0% 0 0 / 0.7);
+}
